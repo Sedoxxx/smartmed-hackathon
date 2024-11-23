@@ -1,0 +1,50 @@
+{
+    "quiz":{
+      "title": "Quiz",
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Submit",
+      "oneVariant": "You can select only one choice.",
+      "multipleVariants": "You can select multiple choices."
+    },
+    "personalDetails": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "gender": "Gender",
+      "height": "Height",
+      "weight": "Weight",
+      "lastAppointmentDate": "Last appointment date"
+    },
+    "newCollectedData": {
+      "title": "New collected Data",
+      "symptoms": "Symptoms",
+      "currentMedications": "Current medications",
+      "medicalFile": "Medical file",
+      "chronicCondition": "Chronic Condition"
+    },
+    "records": {
+      "title": "SEMD Records",
+      "search": "Search",
+      "sortBy": "Sort by",
+      "newest": "Newest",
+      "type": "Type",
+      "author": "Author",
+      "keywords": "Keywords",
+      "issueDate": "Issue date"
+    },
+    "report": {
+      "title": "Medical Report",
+      "id": "ID",
+      "type": "Type",
+      "diagnosis": "Diagnosis",
+      "heartbeat": "Heartbeat",
+      "temperature": "Body temperature",
+      "weight": "Weight",
+      "medicalHistory": "Medical history",
+      "description": "Description",
+      "preliminaryDiagnosis": "Preliminary Diagnosis",
+      "symptoms": "Symptoms",
+      "generateButton": "Generate SEMD"
+    }
+  }
+  
