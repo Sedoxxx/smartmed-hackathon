@@ -9,6 +9,7 @@ import { NavbarNested } from '@/components/dashboard-components/NavbarNested'; /
 import { IconMenu2 } from '@tabler/icons-react';
 import {useTranslations} from 'next-intl';
 
+import { PatientDataProvider } from '../../context/PatientDataContext';
 
 export default function Card() {
   const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(false);
@@ -19,6 +20,7 @@ export default function Card() {
   
 
   return (
+    <PatientDataProvider>
     <MantineProvider>
       <div className="h-full flex "> {/* Flex container with gap-x-6 for spacing between columns */}
         
@@ -42,11 +44,13 @@ export default function Card() {
         {/* Toggle Button for Navbar */}
         <button
           onClick={toggleNavbar}
-          className="absolute top-4 left-4 bg-gray-700 text-white p-2 rounded-full"
+          className="absolute top-2 left-4  text-white p-2 rounded-full"
+          style={{ backgroundColor: '#228be6' }}
         >
           <IconMenu2 size={24} />
         </button>
       </div>
     </MantineProvider>
+    </PatientDataProvider>
   );
 }

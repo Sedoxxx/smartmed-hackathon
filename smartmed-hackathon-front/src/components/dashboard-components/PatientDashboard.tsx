@@ -3,9 +3,15 @@ import { Card, Avatar, Text, Group, Title, Collapse, Button, Stack, Divider, Fle
 import { useDisclosure } from '@mantine/hooks';
 import { IconChevronDown, IconChevronUp } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
+import { PatientDataProvider } from '@/app/[locale]/context/PatientDataContext';
+import { usePatientData } from '@/app/[locale]/context/PatientDataContext';
 
 function PatientDashboard() {
-  // Disclosure hooks for collapsible sections
+  const { 
+    symptoms, medications, history, chronicConditions,
+    updateSymptoms, updateMedications, updateHistory, updateChronicConditions 
+  } = usePatientData();
+
   const [openedSymptoms, { toggle: toggleSymptoms }] = useDisclosure(false);
   const [openedMedications, { toggle: toggleMedications }] = useDisclosure(false);
   const [openedHistory, { toggle: toggleHistory }] = useDisclosure(false);
@@ -29,7 +35,6 @@ function PatientDashboard() {
 
   return (
     <Card shadow="sm" padding="lg" radius="xs" withBorder className="w-[400px]">
-      {/* Patient Details */}
       <Group position="apart" mb="5" mt="2">
         <Group>
           <Avatar src={patient.photo} size={120} radius="md" />
@@ -60,7 +65,7 @@ function PatientDashboard() {
   );
 }
 
-function renderCollapsibleSection(title, opened, toggle, content) {
+function renderCollapsibleSection(title, opened, toggle, content, updateFunction) {
   return (
     <>
       <Button

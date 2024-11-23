@@ -1,36 +1,53 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Paper, Title, Text, Group, TextInput, Textarea, Button, Select, Checkbox, Grid } from '@mantine/core';
 import {useTranslations} from 'next-intl';
 
 const MedicalReport = () => {
-  // Sample state to represent patient's medical data
+  const { symptoms, medications, history, chronicConditions, keywords } = usePatientData();
+
   const [patientName, setPatientName] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [diagnosis, setDiagnosis] = useState('');
-  const [medications, setMedications] = useState('');
-  const [allergies, setAllergies] = useState('');
-  const [testResults, setTestResults] = useState('');
-  const [symptoms, setSymptoms] = useState('');
+  const [medicationsState, setMedicationsState] = useState('');
+  const [symptomsState, setSymptomsState] = useState('');
   const [medicalHistory, setMedicalHistory] = useState('');
 
+  useEffect(() => {
+    // Populate form fields with the context data
+    setSymptomsState(symptoms.join(', '));
+    setMedicationsState(medications.join(', '));
+    setMedicalHistory(history);
+  }, [symptoms, medications, history]);
+
   const handleSubmit = () => {
+    // Log the data before submission
+    console.log({
+      patientName,
+      age,
+      gender,
+      diagnosis,
+      medicationsState,
+      symptomsState,
+      medicalHistory,
+      chronicConditions,  // You can also log chronicConditions if needed
+    });
+  
     // Handle form submission here (e.g., save data, send to server)
     alert('Report Submitted');
   };
   const t = useTranslations('report');
 
   return (
-    <Paper shadow="xs" padding="lg" className='overflow-y-auto h-full'>
-      {/* Medical Report Header */}
+    <Paper shadow="xs" padding="lg">
       <Group position="apart" mb="md">
         <Title order={2}>{t('title')}</Title>
       </Group>
 
       {/* Patient Details Section */}
-      <Group direction="column" spacing="xs" >
+      <Group direction="column" spacing="xs">
         <TextInput
           label={t('name')}
           value={patientName}
