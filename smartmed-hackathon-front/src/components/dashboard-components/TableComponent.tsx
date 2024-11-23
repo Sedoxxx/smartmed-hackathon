@@ -1,31 +1,60 @@
 'use client';
 
-import { Table, TextInput, Group, Select, Paper, Title } from '@mantine/core';
+import { Table, TextInput, Group, Select, Paper, Title, rem } from '@mantine/core';
 import { useState } from 'react';
 import { IconSearch } from '@tabler/icons-react';
 
 const TableComponent = () => {
-  // Sample data for the table related to SEMD
-const data = [
+  // Define custom styles directly using inline CSS and Mantine's theming
+  const styles = {
+    header: {
+      backgroundColor: '#f5f5f5',
+      fontWeight: 600,
+      borderBottom: `1px solid #ccc`,
+    },
+    row: {
+      transition: 'background-color 0.3s',
+      '&:hover': {
+        backgroundColor: '#f9fafb',
+      },
+    },
+    paper: {
+      borderRadius: '10px',
+      boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+      padding: '24px', // Add padding to the entire table
+    },
+    headerGroup: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      gap: '20px', // Adds space when items wrap
+    },
+    title: {
+      flex: 1, // Allows the title to take up extra space
+      minWidth: '200px', // Prevents shrinking on smaller screens
+    },
+    controlsGroup: {
+      display: 'flex',
+      gap: '10px',
+      flexShrink: 0, // Prevents shrinking of the controls
+    },
+  };
+
+  const data = [
     { type: 'Consultation Protocol', author: 'Dr. Emily Carter', keywords: 'Endocrinology, Diabetes, Metformin', issueDate: '2024-11-23' },
     { type: 'Discharge Summary', author: 'Dr. Michael Johnson', keywords: 'Surgery, Appendectomy, Recovery', issueDate: '2023-05-15' },
     { type: 'Follow-up Consultation', author: 'Dr. Sarah Lee', keywords: 'Hypertension, Blood Pressure, Lifestyle Changes', issueDate: '2024-11-10' },
     { type: 'Medical Examination Report', author: 'Dr. David Williams', keywords: 'Blood Test, Cholesterol, Health Check', issueDate: '2023-12-01' },
   ];
-  
 
-  // State for search input, filtering, and sorting
   const [search, setSearch] = useState('');
-  const [filterBy, setFilterBy] = useState('type'); // Default filter by type
-  const [sortOrder, setSortOrder] = useState('desc'); // Default descending order
+  const [filterBy, setFilterBy] = useState('type');
+  const [sortOrder, setSortOrder] = useState('desc');
 
-  // Handle search input change
   const handleSearchChange = (event) => setSearch(event.target.value);
-
-  // Handle filtering by type or issueDate
   const handleFilterChange = (value) => setFilterBy(value);
 
-  // Filter data based on search term across all fields
   const filteredData = data.filter((row) => {
     const searchLower = search.toLowerCase();
     return (
@@ -36,31 +65,25 @@ const data = [
     );
   });
 
-  // Sort filtered data based on selected order
   const sortedData = filteredData.sort((a, b) => {
     const valA = a[filterBy];
     const valB = b[filterBy];
-
     if (filterBy === 'issueDate') {
-      // Handle date sorting
       const dateA = new Date(valA);
       const dateB = new Date(valB);
       return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
     } else {
-      // Handle string sorting for 'type'
       return sortOrder === 'asc' ? valA.localeCompare(valB) : valB.localeCompare(valA);
     }
   });
 
   return (
-    <Paper shadow="xs" padding="lg">
-      {/* Title and Search/Filter Section */}
-      <Group position="apart" mb="md" align="center">
-        <Title order={2}>SEMD Records</Title> {/* Add title here */}
-        
-        <Group spacing="xs">
+    <Paper style={styles.paper}>
+      <Group style={styles.headerGroup} mb="md">
+        <Title order={2} style={styles.title}>SEMD Records</Title>
+        <Group style={styles.controlsGroup}>
           <TextInput
-            placeholder={`Search across all fields`}
+            placeholder="Search across all fields"
             value={search}
             onChange={handleSearchChange}
             icon={<IconSearch />}
@@ -79,10 +102,9 @@ const data = [
         </Group>
       </Group>
 
-      {/* Table */}
       <Table striped highlightOnHover>
         <thead>
-          <tr>
+          <tr style={styles.header}>
             <th>Type</th>
             <th>Author</th>
             <th>Keywords</th>
@@ -91,7 +113,7 @@ const data = [
         </thead>
         <tbody>
           {sortedData.map((row, index) => (
-            <tr key={index}>
+            <tr key={index} style={styles.row}>
               <td>{row.type}</td>
               <td>{row.author}</td>
               <td>{row.keywords}</td>

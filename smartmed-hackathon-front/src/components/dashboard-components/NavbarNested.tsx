@@ -15,9 +15,9 @@ import { Logo } from './Logo';
 import classes from './NavbarNested.module.css';
 
 const mockdata = [
-  { label: 'Dashboard', icon: IconGauge },
+  { label: 'Appointments', icon: IconGauge },
   {
-    label: 'Market news',
+    label: 'Statistics',
     icon: IconNotes,
     initiallyOpened: true,
     links: [
@@ -27,17 +27,18 @@ const mockdata = [
       { label: 'Real time', link: '/' },
     ],
   },
-  {
-    label: 'Releases',
-    icon: IconCalendarStats,
-    links: [
-      { label: 'Upcoming releases', link: '/' },
-      { label: 'Previous releases', link: '/' },
-      { label: 'Releases schedule', link: '/' },
-    ],
-  },
-  { label: 'Analytics', icon: IconPresentationAnalytics },
-  { label: 'Contracts', icon: IconFileAnalytics },
+  // {
+  //   label: 'Releases',
+  //   icon: IconCalendarStats,
+  //   links: [
+  //     { label: 'Upcoming releases', link: '/' },
+  //     { label: 'Previous releases', link: '/' },
+  //     { label: 'Releases schedule', link: '/' },
+  //   ],
+  // },
+  // { label: 'Analytics', icon: IconPresentationAnalytics },
+  // { label: 'Contracts', icon: IconFileAnalytics },
+  ,
   { label: 'Settings', icon: IconAdjustments },
   {
     label: 'Security',
@@ -59,8 +60,8 @@ export function NavbarNested({ isCollapsed }) {
     <nav className={`${classes.navbar} ${isCollapsed ? classes.collapsed : ''}`}>
       <div className={classes.header}>
         <Group justify="space-between">
-          <Logo style={{ width: 120 }} />
-          {!isCollapsed && <Code fw={700}>v3.1.2</Code>}
+          {/* <Logo style={{ width: 120 }} /> */}
+          {/* {!isCollapsed && <Code fw={700}>v3.1.2</Code>} */}
         </Group>
       </div>
 
