@@ -34,3 +34,32 @@
     margin-right: calc(var(--mantine-spacing-md) * -1);
     border-top: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
   }
+
+  /* NavbarNested.module.css */
+.navbar {
+  transition: width 0.3s ease;
+  width: 240px; /* Default expanded width */
+}
+
+.navbar.collapsed {
+  width: 80px; /* Collapsed width */
+}
+
+.navbar.collapsed .links,
+.navbar.collapsed .footer,
+.navbar.collapsed .header {
+  display: none; /* Hide content when collapsed */
+}
+
+.links {
+  padding-top: 20px;
+}
+
+.linksInner {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+}
