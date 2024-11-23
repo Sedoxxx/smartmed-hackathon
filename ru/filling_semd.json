@@ -1,0 +1,42 @@
+{
+    "personalDetails": {
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "gender": "Пол",
+      "height": "Рост",
+      "weight": "Вес",
+      "lastAppointmentDate": "Дата последнего приема"
+    },
+    "newCollectedData": {
+      "title": "Новые данные",
+      "symptoms": "Симптомы",
+      "currentMedications": "Текущие лекарства",
+      "medicalFile": "Медицинская карта",
+      "chronicCondition": "Хронические состояния"
+    },
+    "records": {
+      "title": "Записи СЭМД",
+      "search": "Поиск",
+      "sortBy": "Сортировать по",
+      "newest": "Сначала новые",
+      "type": "Тип",
+      "author": "Автор",
+      "keywords": "Ключевые слова",
+      "issueDate": "Дата выпуска"
+    },
+    "report": {
+      "title": "Медицинский отчет",
+      "id": "ID",
+      "type": "Тип",
+      "diagnosis": "Диагноз",
+      "heartbeat": "Пульс",
+      "temperature": "Температура тела",
+      "weight": "Вес",
+      "medicalHistory": "Медицинская история",
+      "description": "Описание",
+      "preliminaryDiagnosis": "Предварительный диагноз",
+      "symptoms": "Симптомы",
+      "generateButton": "Сгенерировать СЭМД"
+    }
+  }
+  
