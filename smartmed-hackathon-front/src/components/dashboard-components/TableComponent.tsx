@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { IconSearch } from '@tabler/icons-react';
 
 const TableComponent = () => {
-  // Define custom styles directly using inline CSS and Mantine's theming
   const styles = {
     header: {
       backgroundColor: '#f5f5f5',

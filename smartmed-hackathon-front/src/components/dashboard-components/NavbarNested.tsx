@@ -1,21 +1,18 @@
 import React from 'react';
-import {
-  IconAdjustments,
-  IconCalendarStats,
-  IconFileAnalytics,
-  IconGauge,
-  IconLock,
-  IconNotes,
-  IconPresentationAnalytics,
-} from '@tabler/icons-react';
-import { Code, Group, ScrollArea } from '@mantine/core';
+import { IconAdjustments, IconCalendarStats, IconFileAnalytics, IconGauge, IconLock, IconNotes, IconPresentationAnalytics } from '@tabler/icons-react';
+import { Group, ScrollArea } from '@mantine/core';
 import { LinksGroup } from './NavbarLinksGroup/NavbarLinksGroup';
 import { UserButton } from './UserButton/UserButton';
 import { Logo } from './Logo';
+import { NavLink } from 'react-router-dom'; // Import NavLink for routing
 import classes from './NavbarNested.module.css';
 
 const mockdata = [
-  { label: 'Appointments', icon: IconGauge },
+  {
+    label: 'Appointments',
+    icon: IconGauge,
+    link: '/appointments', // Appointments link to the appointments page
+  },
   {
     label: 'Statistics',
     icon: IconNotes,
@@ -27,18 +24,6 @@ const mockdata = [
       { label: 'Real time', link: '/' },
     ],
   },
-  // {
-  //   label: 'Releases',
-  //   icon: IconCalendarStats,
-  //   links: [
-  //     { label: 'Upcoming releases', link: '/' },
-  //     { label: 'Previous releases', link: '/' },
-  //     { label: 'Releases schedule', link: '/' },
-  //   ],
-  // },
-  // { label: 'Analytics', icon: IconPresentationAnalytics },
-  // { label: 'Contracts', icon: IconFileAnalytics },
-  ,
   { label: 'Settings', icon: IconAdjustments },
   {
     label: 'Security',
@@ -52,6 +37,7 @@ const mockdata = [
 ];
 
 export function NavbarNested({ isCollapsed }) {
+  // Map the mock data to LinksGroup components
   const links = mockdata.map((item) => (
     <LinksGroup {...item} key={item.label} />
   ));
@@ -65,12 +51,16 @@ export function NavbarNested({ isCollapsed }) {
         </Group>
       </div>
 
+      {/* Render the navigation links if not collapsed */}
       {!isCollapsed && (
         <ScrollArea className={classes.links}>
-          <div className={classes.linksInner}>{links}</div>
+          <div className={classes.linksInner}>
+            {links}
+          </div>
         </ScrollArea>
       )}
 
+      {/* Render the user button if not collapsed */}
       {!isCollapsed && (
         <div className={classes.footer}>
           <UserButton />
