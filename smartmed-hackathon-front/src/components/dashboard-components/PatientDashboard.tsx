@@ -23,7 +23,7 @@ function PatientDashboard() {
 
   // Replace these with actual patient data
   const patient = {
-    photo: 'https://via.placeholder.com/150', // Placeholder photo URL
+    photo: '', // Placeholder photo URL
     firstName: 'John',
     lastName: 'Doe',
     gender: 'Male',
@@ -72,7 +72,7 @@ function renderCollapsibleSection(title, opened, toggle, content, updateFunction
         onClick={toggle}
         variant="light"
         fullWidth
-        rightIcon={opened ? <IconChevronUp /> : <IconChevronDown />}
+        righticon={opened ? <IconChevronUp /> : <IconChevronDown />}
       >
         {title}
       </Button>

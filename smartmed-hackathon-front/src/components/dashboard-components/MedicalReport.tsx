@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Paper, Title, Text, Group, TextInput, Textarea, Button, Select, Checkbox, Grid } from '@mantine/core';
 import {useTranslations} from 'next-intl';
+import { usePatientData } from '@/app/[locale]/context/PatientDataContext';
 
 const MedicalReport = () => {
   const { symptoms, medications, history, chronicConditions, keywords } = usePatientData();
@@ -117,7 +118,7 @@ const MedicalReport = () => {
         mt="md"
       />
 
-      {/* Allergies Section */}
+      {/* Allergies Section
       <Textarea
         label={t('allergies')}
         value={allergies}
@@ -125,17 +126,17 @@ const MedicalReport = () => {
         placeholder={t('enterAllergies')}
         minRows={4}
         mt="md"
-      />
+      /> */}
 
       {/* Test Results Section */}
-      <Textarea
+      {/* <Textarea
         label={t('testResults')}
         value={testResults}
         onChange={(e) => setTestResults(e.target.value)}
         placeholder={t('enterTestResults')}
         minRows={4}
         mt="md"
-      />
+      /> */}
 
       {/* Submit Button */}
       <Group position="center" mt="lg">

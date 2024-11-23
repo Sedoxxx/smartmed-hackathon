@@ -21,9 +21,9 @@ const links = [
   //     { link: '/blog', label: 'Blog' },
   //   ],
   // },
-  ,
+  { link: '/dashboard/appointment', label: 'appointments' },
   { link: '/about', label: 'About' },
-  // { link: '/pricing', label: 'Pricing' }
+  { link: '/pricing', label: 'Pricing' }
   ,
   {
     link: '#2',
