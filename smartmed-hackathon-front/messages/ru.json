@@ -11,6 +11,7 @@
       "firstName": "Имя",
       "lastName": "Фамилия",
       "gender": "Пол",
+      "age": "Возраст",
       "height": "Рост",
       "weight": "Вес",
       "lastAppointmentDate": "Дата последнего приема"
@@ -19,7 +20,7 @@
       "title": "Новые данные",
       "symptoms": "Симптомы",
       "currentMedications": "Текущие лекарства",
-      "medicalFile": "Медицинская карта",
+      "medicalLife": "История болезней",
       "chronicCondition": "Хронические состояния"
     },
     "records": {
@@ -30,7 +31,11 @@
       "type": "Тип",
       "author": "Автор",
       "keywords": "Ключевые слова",
-      "issueDate": "Дата выпуска"
+      "issueDate": "Дата выпуска",
+      "protocol": "Протокол консультирования",
+      "dischargeSummary": "Сводка",
+      "followUp": "Вторичная консультация",
+      "medicalExamination": "Медицинский осмотр"
     },
     "report": {
       "title": "Медицинский отчет",
@@ -44,7 +49,25 @@
       "description": "Описание",
       "preliminaryDiagnosis": "Предварительный диагноз",
       "symptoms": "Симптомы",
-      "generateButton": "Сгенерировать СЭМД"
+      "generateButton": "Сгенерировать СЭМД",
+      "name": "Имя пациента",
+      "enterName": "Введите имя пациента",
+      "age": "Возраст",
+      "enterAge": "Введите возраст пациента",
+      "gender": "Пол",
+      "male": "Мужской",
+      "female": "Женский",
+      "other": "Другой",
+      "enterHistory": "Введите медицинскую историю пациента",
+      "enterSymptoms": "Введите симптомы пациента",
+      "enterDiagnosis": "Введите диагноз пациента",
+      "medications": "Медицинские препараты",
+      "enterMedications": "Введите назначенные препараты",
+      "allergies": "Аллергии",
+      "enterAllergies": "Введите аллергии",
+      "testResults": "Результаты анализов",
+      "enterTestResults": "Введите результаты анализов",
+      "submit": "Отправить"
     }
   }
   

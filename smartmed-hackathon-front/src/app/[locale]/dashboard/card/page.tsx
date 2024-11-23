@@ -7,14 +7,17 @@ import TableComponent from '@/components/dashboard-components/TableComponent'; /
 import MedicalReport from '@/components/dashboard-components/MedicalReport'; // Import the MedicalReport component
 import { NavbarNested } from '@/components/dashboard-components/NavbarNested'; // Import the Navbar component
 import { IconMenu2 } from '@tabler/icons-react';
+import {useTranslations} from 'next-intl';
+
 import { PatientDataProvider } from '../../context/PatientDataContext';
 
 export default function Card() {
   const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(false);
-
+  const t = useTranslations('quiz')
   const toggleNavbar = () => {
     setIsNavbarCollapsed(!isNavbarCollapsed);
   };
+  
 
   return (
     <PatientDataProvider>

@@ -11,6 +11,7 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "gender": "Gender",
+      "age": "Age",
       "height": "Height",
       "weight": "Weight",
       "lastAppointmentDate": "Last appointment date"
@@ -19,7 +20,7 @@
       "title": "New collected Data",
       "symptoms": "Symptoms",
       "currentMedications": "Current medications",
-      "medicalFile": "Medical file",
+      "medicalLife": "Medical life",
       "chronicCondition": "Chronic Condition"
     },
     "records": {
@@ -30,7 +31,12 @@
       "type": "Type",
       "author": "Author",
       "keywords": "Keywords",
-      "issueDate": "Issue date"
+      "issueDate": "Issue date",
+      "protocol": "Consultation Protocol",
+      "dischargeSummary": "Discharge Summary",
+      "followUp": "Follow-up Consultation",
+      "medicalExamination": "Medical Examination Report"
+      
     },
     "report": {
       "title": "Medical Report",
@@ -44,7 +50,25 @@
       "description": "Description",
       "preliminaryDiagnosis": "Preliminary Diagnosis",
       "symptoms": "Symptoms",
-      "generateButton": "Generate SEMD"
+      "generateButton": "Generate SEMD",
+      "name": "Patient Name",
+      "enterName": "Enter Patient Name",
+      "age": "Age",
+      "enterAge": "Enter Patient Age",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "enterHistory": "Enter patient's medical history",
+      "enterSymptoms": "Enter patient's symptoms",
+      "enterDiagnosis": "Enter patient's diagnosis",
+      "medications": "Medications",
+      "enterMedications": "Enter prescribed medications",
+      "allergies": "Known allergies",
+      "enterAllergies": "Enter known allergies",
+      "testResults": "Test Results",
+      "enterTestResults": "Enter any relevant test results",
+      "submit": "Submit"
     }
   }
   
