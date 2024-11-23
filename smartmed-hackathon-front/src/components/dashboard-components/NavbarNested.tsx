@@ -8,11 +8,12 @@ import { NavLink } from 'react-router-dom'; // Import NavLink for routing
 import classes from './NavbarNested.module.css';
 
 const mockdata = [
-  {
-    label: 'Appointments',
-    icon: IconGauge,
-    link: '/appointments', // Appointments link to the appointments page
-  },
+  // {
+  //   label: 'Appointments',
+  //   icon: IconGauge,
+  //   link: '/appointments', // Appointments link to the appointments page
+  // }
+  ,
   {
     label: 'Statistics',
     icon: IconNotes,
