@@ -1,28 +1,44 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Paper, Title, Text, Group, TextInput, Textarea, Button, Select, Checkbox, Grid } from '@mantine/core';
+import React, { useEffect, useState } from 'react';
+import { Paper, Title, Text, Group, TextInput, Textarea, Button, Select, Grid } from '@mantine/core';
+import { usePatientData } from '../../context/PatientDataContext';  // Import the context
 
 const MedicalReport = () => {
-  // Sample state to represent patient's medical data
+  const { symptoms, medications, history, chronicConditions, keywords } = usePatientData();
+
   const [patientName, setPatientName] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
   const [diagnosis, setDiagnosis] = useState('');
-  const [medications, setMedications] = useState('');
-  const [allergies, setAllergies] = useState('');
-  const [testResults, setTestResults] = useState('');
-  const [symptoms, setSymptoms] = useState('');
+  const [medicationsState, setMedicationsState] = useState('');
+  const [symptomsState, setSymptomsState] = useState('');
   const [medicalHistory, setMedicalHistory] = useState('');
 
+  useEffect(() => {
+    // Populate form fields with the context data
+    setSymptomsState(symptoms.join(', '));
+    setMedicationsState(medications.join(', '));
+    setMedicalHistory(history);
+  }, [symptoms, medications, history]);
+
   const handleSubmit = () => {
+    // Log the data before submission
+    console.log({
+      patientName,
+      age,
+      gender,
+      diagnosis,
+      medicationsState,
+      symptomsState,
+      medicalHistory,
+      chronicConditions,  // You can also log chronicConditions if needed
+    });
+  
     // Handle form submission here (e.g., save data, send to server)
     alert('Report Submitted');
   };
 
   return (
     <Paper shadow="xs" padding="lg">
-      {/* Medical Report Header */}
       <Group position="apart" mb="md">
         <Title order={2}>Medical Report</Title>
       </Group>
@@ -49,11 +65,7 @@ const MedicalReport = () => {
               label="Gender"
               value={gender}
               onChange={(value) => setGender(value)}
-              data={[
-                { value: 'male', label: 'Male' },
-                { value: 'female', label: 'Female' },
-                { value: 'other', label: 'Other' },
-              ]}
+              data={[{ value: 'male', label: 'Male' }, { value: 'female', label: 'Female' }, { value: 'other', label: 'Other' }]}
             />
           </Grid.Col>
         </Grid>
@@ -64,66 +76,37 @@ const MedicalReport = () => {
         label="Medical History"
         value={medicalHistory}
         onChange={(e) => setMedicalHistory(e.target.value)}
-        placeholder="Enter patient's medical history"
-        minRows={4}
-        mt="md"
+        placeholder="Enter Patient's Medical History"
+        minRows={3}
       />
 
-      {/* Symptoms Section */}
-      <Textarea
-        label="Current Symptoms"
-        value={symptoms}
-        onChange={(e) => setSymptoms(e.target.value)}
-        placeholder="Enter current symptoms"
-        minRows={4}
-        mt="md"
+      {/* Symptoms and Medications */}
+      <TextInput
+        label="Symptoms"
+        value={symptomsState}
+        onChange={(e) => setSymptomsState(e.target.value)}
+        placeholder="Enter Symptoms"
+        minRows={3}
+      />
+      <TextInput
+        label="Medications"
+        value={medicationsState}
+        onChange={(e) => setMedicationsState(e.target.value)}
+        placeholder="Enter Medications"
+        minRows={3}
       />
 
       {/* Diagnosis Section */}
-      <TextInput
+      <Textarea
         label="Diagnosis"
         value={diagnosis}
         onChange={(e) => setDiagnosis(e.target.value)}
-        placeholder="Enter diagnosis"
-        mt="md"
-      />
-
-      {/* Medications Section */}
-      <Textarea
-        label="Medications"
-        value={medications}
-        onChange={(e) => setMedications(e.target.value)}
-        placeholder="Enter prescribed medications"
-        minRows={4}
-        mt="md"
-      />
-
-      {/* Allergies Section */}
-      <Textarea
-        label="Known Allergies"
-        value={allergies}
-        onChange={(e) => setAllergies(e.target.value)}
-        placeholder="Enter known allergies"
-        minRows={4}
-        mt="md"
-      />
-
-      {/* Test Results Section */}
-      <Textarea
-        label="Test Results"
-        value={testResults}
-        onChange={(e) => setTestResults(e.target.value)}
-        placeholder="Enter any relevant test results"
-        minRows={4}
-        mt="md"
+        placeholder="Enter Diagnosis"
+        minRows={3}
       />
 
       {/* Submit Button */}
-      <Group position="center" mt="lg">
-        <Button onClick={handleSubmit} color="blue">
-          Submit Report
-        </Button>
-      </Group>
+      <Button onClick={handleSubmit} mt="sm">Submit Report</Button>
     </Paper>
   );
 };

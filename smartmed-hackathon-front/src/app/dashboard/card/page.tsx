@@ -7,6 +7,7 @@ import TableComponent from '@/components/dashboard-components/TableComponent'; /
 import MedicalReport from '@/components/dashboard-components/MedicalReport'; // Import the MedicalReport component
 import { NavbarNested } from '@/components/dashboard-components/NavbarNested'; // Import the Navbar component
 import { IconMenu2 } from '@tabler/icons-react';
+import { PatientDataProvider } from '@/context/PatientDataContext';
 
 export default function Card() {
   const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(false);
@@ -16,6 +17,7 @@ export default function Card() {
   };
 
   return (
+    <PatientDataProvider>
     <MantineProvider>
       <div className="h-screen flex "> {/* Flex container with gap-x-6 for spacing between columns */}
         
@@ -32,7 +34,7 @@ export default function Card() {
         </div>
         
         {/* Right Side: Medical Report */}
-        <div className="w-2/5 p-6 pl-0"> {/* Take up 1/3 width */}
+        <div className="flex-1 w-1/2 p-6 pl-0"> {/* Take up 1/3 width */}
           <MedicalReport /> {/* Include the MedicalReport component here */}
         </div>
 
@@ -45,5 +47,6 @@ export default function Card() {
         </button>
       </div>
     </MantineProvider>
+    </PatientDataProvider>
   );
 }
