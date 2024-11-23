@@ -17,13 +17,13 @@ export default function Card() {
 
   return (
     <MantineProvider>
-      <div className="h-screen flex "> {/* Flex container with gap-x-6 for spacing between columns */}
+      <div className="h-full flex "> {/* Flex container with gap-x-6 for spacing between columns */}
         
         {/* Navbar */}
         <NavbarNested isCollapsed={isNavbarCollapsed} />
 
         {/* Left Side: Dashboard and Table */}
-        <div className={`flex-1 p-6 pr-0 overflow-y-auto ${isNavbarCollapsed ? 'ml-10 mr-10' : ''}`} style={{ height: '100vh' }}>
+        <div className={`flex-1 p-6 pr-0 overflow-y-auto ${isNavbarCollapsed ? 'ml-10 mr-10' : ''}`} style={{ height: '100%' }}>
           <div className="mb-6">
             <PatientDashboard />
           </div>
@@ -32,7 +32,7 @@ export default function Card() {
         </div>
         
         {/* Right Side: Medical Report */}
-        <div className="w-2/5 p-6 pl-0"> {/* Take up 1/3 width */}
+        <div className="w-2/5 p-6 pl-0 overflow-y-auto"> {/* Take up 1/3 width */}
           <MedicalReport /> {/* Include the MedicalReport component here */}
         </div>
 

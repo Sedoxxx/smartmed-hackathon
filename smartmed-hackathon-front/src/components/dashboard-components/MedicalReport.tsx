@@ -21,14 +21,14 @@ const MedicalReport = () => {
   };
 
   return (
-    <Paper shadow="xs" padding="lg">
+    <Paper shadow="xs" padding="lg" className='overflow-y-auto h-full'>
       {/* Medical Report Header */}
       <Group position="apart" mb="md">
         <Title order={2}>Medical Report</Title>
       </Group>
 
       {/* Patient Details Section */}
-      <Group direction="column" spacing="xs">
+      <Group direction="column" spacing="xs" >
         <TextInput
           label="Patient Name"
           value={patientName}

@@ -60,7 +60,7 @@ function PatientDashboard() {
 function renderCollapsibleSection(title, opened, toggle, content) {
   return (
     <>
-      <Button onClick={toggle} variant="light" fullWidth rightIcon={opened ? <IconChevronUp /> : <IconChevronDown />}>
+      <Button onClick={toggle} variant="light" fullWidth righticon={opened ? <IconChevronUp /> : <IconChevronDown />}>
         {title}
       </Button>
       <Collapse in={opened}>
